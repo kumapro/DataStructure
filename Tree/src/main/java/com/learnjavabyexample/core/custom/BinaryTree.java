@@ -50,19 +50,6 @@ public class BinaryTree {
 		root = insertRec(root, data);
 	}
 
-	private Node insertRec(Node node, Integer data) {
-		 if(node == null){
-			 node = new Node(data);
-			 return node;
-		 }
-		 if(data < node.getData()){
-			 node.setLeft(insertRec(node.getLeft(), data));
-		 }else if(data > node.getData()){
-			 node.setRight(insertRec(node.getRight(), data));
-		 }
-		return node;
-	}
-	
 	public void insertItr(Integer data){
 		if(root == null){
 			root = new Node(data);
@@ -84,6 +71,19 @@ public class BinaryTree {
 		} else if(data < prev.getData()){
 			prev.setLeft(newNode);
 		}  
+	}
+	
+	private Node insertRec(Node node, Integer data) {
+		 if(node == null){
+			 node = new Node(data);
+			 return node;
+		 }
+		 if(data < node.getData()){
+			 node.setLeft(insertRec(node.getLeft(), data));
+		 }else if(data > node.getData()){
+			 node.setRight(insertRec(node.getRight(), data));
+		 }
+		return node;
 	}
 
 	public void preOrderTraversal(){
