@@ -287,7 +287,52 @@ public class LinkedList<T> {
 		first.setNext(null);
 	}
 	
+	public void recursiveTraversal(){
+		Node<T> node = this.head;
+		recursivelyTraverse(node);
+	}
+	
+	private void recursivelyTraverse(Node<T> node){
+		if(node.getNext() == null){
+			System.out.println(node.getData());
+			return;
+		}
+		System.out.print(node.getData() + " --> ");
+		recursivelyTraverse(node.getNext());
+	}
+	
+	public void recursiveTraversalInReverseOrder(){
+		Node<T> node = this.head;
+		recursivelyTraverseInReverseOrder(node);
+	}
+	
+	private void recursivelyTraverseInReverseOrder(Node<T> node){
+		if(node == null){
+			return;
+		}
+		recursivelyTraverseInReverseOrder(node.getNext());
+		if(node == head){
+			System.out.println(node.getData());
+			return;
+		}
+		System.out.print(node.getData() + " --> ");
+	}
+	
 	public int size() {
 		return size;
 	}
+	
+	public T getNthElement(int index){
+		int count=0;
+		Node<T> temp = head;
+		while(temp != null){
+			count++;
+			if(count == index){
+				return temp.getData();
+			}
+			temp = temp.getNext();
+		}
+		return null;
+	}
+	
 }

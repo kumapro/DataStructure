@@ -13,12 +13,36 @@ public class Client {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-//		testBasicFunctionOnLinkedList();
-//		retainMNodeThenDeleteMNodeTest();
+		testBasicFunctionOnLinkedList();
+		retainMNodeThenDeleteMNodeTest();
 		testCircularity();
-//		testCycle();
+		testCycle();
+		
+		testTraversal();
 	}
 	
+	private static void testTraversal() {
+		
+		LinkedList<String> list = new LinkedList<>();
+		list.add("first");
+		list.add("second");
+		list.add("third");
+		list.add("fourth");
+		list.add("fifth");
+		list.add("six");
+		list.add("seven");
+		list.add("eight");
+		list.add("nine");
+		list.add("ten");
+		list.recursiveTraversal();
+//		list.traverse();
+		list.recursiveTraversalInReverseOrder();
+		
+		int index = 10;
+		System.out.println("\n element at " + index + "th index is: " + list.getNthElement(index) );
+		
+	}
+
 	private static void testCycle() {
 		LinkedList<String> list = new LinkedList<>();
 		list.add("first");
